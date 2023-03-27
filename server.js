@@ -48,7 +48,7 @@ app.post("/sign", function (req, res) {
   }
   if (req.body.type === "login") {
     console.log("login attemted")
-    //In order to debug better, WE WILL PRINT EMAIL, PASSWORD AND TYPE OF SIGNING BELOW
+    //In order to debug better, WE WILL PRINT EMAIL, PASSWORD AND TYPE OF request BELOW, it can be signup or log in
     console.log(req.body)
     const tryToAuthenticateUsingDatabase = address
       .find({ email: req.body.email })
@@ -108,8 +108,8 @@ app.post("/sign", function (req, res) {
         }
       })
   } else {
-    // type of signing is not valid, needs strict action
-    res.status(404).send("Type of signing in invalid!!")
+    // type of request is not valid, needs strict action
+    res.status(404).send("Type of request in invalid!!")
   }
 })
 //REMEMBER TO CHANGE THE PORT
